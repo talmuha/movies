@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Movie Info
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">{{ movie.title }}</h1>
+  <p class="lead">{{movie.description}}</p>
+  <hr class="my-4">
+  <p>{{ movie.duration }}</p>
+  {% for genre in movie.genre.all %}
+    <p>{{ genre }}</p>
+  {% endfor %}
+  <p>{{ movie.language }}</p>
+  <p>{{ movie.added_by.first_name }}</p>
+  <p>{{ movie.added_by.last_name }}</p>
+  <p>{{ movie.added_by.email }}</p>
+</div>
+{% endblock %}
